@@ -1,0 +1,14 @@
+what i have done:
+oil works wonderfully
+telescope has one problem on startup, but probably will look into it when i will finish 
+harpoon works nice, but i want to add db
+lsp kinda done? lol
+Next to N
+Go back to buffer
+
+surround into some ok stuff  &&&
+
+what i want to install:
+I want to change color scheme, but that is at the end
+vim wiki and settings for to end line 
+
