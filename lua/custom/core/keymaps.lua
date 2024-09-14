@@ -10,8 +10,6 @@ vim.api.nvim_set_keymap("n", "T", "N", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true })
 
---keymap.set("n", "db", require("harpoon.ui").nav_next)
-
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
@@ -90,13 +88,10 @@ keymap.set("n", "<leader>ot", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":Fern . -drawer<CR>") -- toggle file explorer
+--keymap.set("n", "<leader>e", ":Fern . -drawer<CR>") -- toggle file explorer
 keymap.set("n", "<leader>ss", ":SessionSave<CR>") -- save session
 keymap.set("n", "<leader>rr", ":SessionRestore<CR>") -- restore session
 
--- telescope
--- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessar
 --Terminal stuff
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 vim.api.nvim_set_keymap(

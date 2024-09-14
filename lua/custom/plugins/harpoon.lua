@@ -1,26 +1,28 @@
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
-  config = function()
-    local harpoon = require "harpoon"
-    harpoon:setup()
+	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
+	config = function()
+		local harpoon = require("harpoon")
+		harpoon:setup()
 
-    vim.keymap.set("n", "m", function()
-      harpoon:list():add()
-    end)
-	
-    vim.keymap.set("n", "<leader>m", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
-	
-    vim.keymap.set("n", "db", function()
-      harpoon.ui:nav_next()
-    end)
+		vim.keymap.set("n", "m", function()
+			harpoon:list():add()
+		end)
 
-    for _, idx in ipairs { 1, 2, 3, 4, 5 } do
-      vim.keymap.set("n", string.format("%d", idx), function()
-        harpoon:list():select(idx)
-      end)
-    end
-  end,
+		vim.keymap.set("n", "<leader>m", function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end)
+
+		vim.keymap.set("n", "<dm>", function()
+			harpoon:list():next()
+		end)
+
+		local symbols = { "&", "[", "{", "}", "(" }
+		for i, symbol in ipairs(symbols) do
+			vim.keymap.set("n", symbol, function()
+				harpoon:list():select(i)
+			end)
+		end
+	end,
+	dependencies = { "nvim-lua/plenary.nvim" },
 }
