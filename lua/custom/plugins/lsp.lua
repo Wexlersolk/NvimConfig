@@ -44,6 +44,14 @@ return {
 								parameterNames = true,
 								rangeVariableTypes = true,
 							},
+							-- Ensure these settings are included
+							experimentalPostfixCompletions = true,
+							analyses = {
+								unusedparams = true,
+								nilness = true,
+							},
+							staticcheck = true,
+							-- You can add or adjust auto-import-related settings here if needed
 						},
 					},
 				},

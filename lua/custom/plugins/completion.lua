@@ -37,6 +37,7 @@ return {
 						}),
 						{ "i", "c" }
 					),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				},
 
 				-- Enable luasnip to handle snippet expansion for nvim-cmp
