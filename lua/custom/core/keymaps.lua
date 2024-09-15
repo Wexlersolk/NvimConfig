@@ -14,6 +14,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current 
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 vim.keymap.set("n", "<leader>pb", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
+vim.keymap.set("n", "<leader>pm", "oif err != nil {<CR>}<Esc>Olog.Fatal(err)<Esc>")
 
 vim.keymap.set("n", "Y", "bvwy", { noremap = true, silent = true })
 

@@ -33,26 +33,29 @@ return {
 			local servers = {
 				bashls = true,
 				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
 					settings = {
-						gopls = {
-							hints = {
-								assignVariableTypes = true,
-								compositeLiteralFields = true,
-								compositeLiteralTypes = true,
-								constantValues = true,
-								functionTypeParameters = true,
-								parameterNames = true,
-								rangeVariableTypes = true,
-							},
-							-- Ensure these settings are included
-							experimentalPostfixCompletions = true,
-							analyses = {
-								unusedparams = true,
-								nilness = true,
-							},
-							staticcheck = true,
-							-- You can add or adjust auto-import-related settings here if needed
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
 						},
+						experimentalPostfixCompletions = true,
+						analyses = {
+							unusedparams = true,
+							nilness = true,
+						},
+						staticcheck = true,
+						-- Add these settings for auto-imports
+						gofumpt = true, -- Optional: Ensure code is formatted properly
+						["local"] = "", -- Optional: Add your module path for sorting imports correctly
+						importShortcut = "both", -- Can be "both", "link", or "none"
+						usePlaceholders = true,
 					},
 				},
 				lua_ls = {
@@ -133,8 +136,20 @@ return {
 				"stylua",
 				"lua_ls",
 				"delve",
+				"gopls",
 				-- "tailwind-language-server",
 			}
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*.go",
+				callback = function()
+					vim.lsp.buf.format({ async = false })
+					vim.lsp.buf.code_action({
+						context = { only = { "source.organizeImports" } },
+						apply = true,
+					})
+				end,
+			})
 
 			vim.list_extend(ensure_installed, servers_to_install)
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
