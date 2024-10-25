@@ -40,7 +40,7 @@ vim.keymap.set("v", "T", ":m '>-2<CR>gv=gv")
 
 -- clear search highlights
 keymap.set("n", "<leader>c", ":nohl<CR>")
-keymap.set("n", "O", "<Esc>o", { noremap = true, silent = true })
+keymap.set("n", "<c-O>", "<Esc>o", { noremap = true, silent = true })
 keymap.set("n", "<CR>", "O")
 --newline in i
 vim.keymap.set("i", "<C-CR>", "<Esc>O", { noremap = true, silent = true })
@@ -108,7 +108,7 @@ vim.api.nvim_set_keymap("n", "<leader>r", ":LspRestart<CR>", { noremap = true, s
 --GAMES
 -- Define custom commands
 vim.cmd("command! Mines :Nvimesweeper")
-vim.cmd("command! DC %s/\\/\\/.*$//g")
+vim.cmd("command! DC %s/\\/\\/.*$//g | nohlsearch")
 vim.cmd("command! Minesweeper :Nvimesweeper")
 
 -- Remap commands that originally use `[` to `]`
