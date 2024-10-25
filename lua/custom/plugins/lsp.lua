@@ -120,6 +120,15 @@ return {
 					init_options = { clangdFileStatus = true },
 					filetypes = { "c" },
 				},
+				omnisharp = {
+					cmd = { "omnisharp" },
+					enable_editorconfig_support = true,
+					enable_roslyn_analyzers = true,
+					organize_imports_on_format = true,
+					enable_import_completion = true,
+					sdk_include_prereleases = true,
+					analyze_open_documents_only = false,
+				},
 			}
 
 			local servers_to_install = vim.tbl_filter(function(key)

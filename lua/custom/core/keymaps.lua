@@ -1,5 +1,4 @@
 local keymap = vim.keymap -- for conciseness
-
 vim.api.nvim_set_keymap("n", ",", "w", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<BS>", ":bprevious<CR>", { noremap = true, silent = true })
@@ -41,9 +40,11 @@ vim.keymap.set("v", "T", ":m '>-2<CR>gv=gv")
 
 -- clear search highlights
 keymap.set("n", "<leader>c", ":nohl<CR>")
-keymap.set("n", "O", "m`O<Esc>``k")
+keymap.set("n", "O", "<Esc>o", { noremap = true, silent = true })
 keymap.set("n", "<CR>", "O")
-
+--newline in i
+vim.keymap.set("i", "<C-CR>", "<Esc>O", { noremap = true, silent = true })
+vim.keymap.set("i", "O", "<Esc>o", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "o", "o <BS><Esc>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("v", ",", "w", { noremap = true, silent = true })
@@ -109,3 +110,11 @@ vim.api.nvim_set_keymap("n", "<leader>r", ":LspRestart<CR>", { noremap = true, s
 vim.cmd("command! Mines :Nvimesweeper")
 vim.cmd("command! DC %s/\\/\\/.*$//g")
 vim.cmd("command! Minesweeper :Nvimesweeper")
+
+-- Remap commands that originally use `[` to `]`
+vim.keymap.set("n", "]c", "[c", { noremap = true, silent = true })
+vim.keymap.set("n", "]d", "[d", { noremap = true, silent = true })
+vim.keymap.set("n", "]f", "[d", { noremap = true, silent = true })
+--
+vim.keymap.del("n", "[d")
+-- Disable specific normal mode mappings by mapping them to <nop>

@@ -17,11 +17,11 @@ return {
 			harpoon:list():next()
 		end)
 
-		local symbols = { "&", "[", "{", "}", "(" }
+		local symbols = { "%", "7", "5", "3", "1", "9", "0", "2", "4", "6" }
 		for i, symbol in ipairs(symbols) do
 			vim.keymap.set("n", symbol, function()
 				harpoon:list():select(i)
-			end)
+			end, { noremap = true, silent = true, remap = true })
 		end
 	end,
 	dependencies = { "nvim-lua/plenary.nvim" },
