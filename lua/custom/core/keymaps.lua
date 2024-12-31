@@ -7,6 +7,11 @@ vim.api.nvim_set_keymap("n", "`", ":bnext<CR>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "N", "n", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "T", "N", { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap("v", "p", "P", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "P", "p", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "p", "P", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "P", "p", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
@@ -40,11 +45,11 @@ vim.keymap.set("v", "T", ":m '>-2<CR>gv=gv")
 
 -- clear search highlights
 keymap.set("n", "<leader>c", ":nohl<CR>")
-keymap.set("n", "<c-O>", "<Esc>o", { noremap = true, silent = true })
+keymap.set("n", "O", "<Esc>o", { noremap = true, silent = true })
 keymap.set("n", "<CR>", "O")
 --newline in i
 vim.keymap.set("i", "<C-CR>", "<Esc>O", { noremap = true, silent = true })
-vim.keymap.set("i", "O", "<Esc>o", { noremap = true, silent = true })
+vim.keymap.set("i", "<c-o>", "<Esc>o", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "o", "o <BS><Esc>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("v", ",", "w", { noremap = true, silent = true })
@@ -66,7 +71,7 @@ vim.api.nvim_set_keymap("n", "<leader>j", "ggVG", { noremap = true, silent = tru
 keymap.set("n", "q", '"_x')
 
 vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true }) -- end of the line in visual mode
-vim.api.nvim_set_keymap("n", "d,", [[:normal! daw<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "d,", [["_daw]<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true })
 
 -- window management
@@ -117,4 +122,9 @@ vim.keymap.set("n", "]d", "[d", { noremap = true, silent = true })
 vim.keymap.set("n", "]f", "[d", { noremap = true, silent = true })
 --
 vim.keymap.del("n", "[d")
+
+---comment
+vim.api.nvim_set_keymap("n", ":comment", ":'<,'>s/^/# /<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", ":uncomment", ":'<,'>s/^#\\s\\?//<CR>", { noremap = true, silent = true })
+
 -- Disable specific normal mode mappings by mapping them to <nop>
