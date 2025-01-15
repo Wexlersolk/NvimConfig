@@ -7,10 +7,19 @@ vim.api.nvim_set_keymap("n", "`", ":bnext<CR>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "N", "n", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "T", "N", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("v", "p", "P", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "P", "p", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "p", "P", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "P", "p", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", ",", "gcc", { noremap = false }) -- Comment current line
+vim.api.nvim_set_keymap("v", ".", "gc", { noremap = false }) -- Comment selection
+vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprev<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<space>e", [[:execute "normal! vi{"<CR>]], { noremap = true, silent = true })
+
+-- Normal mode: Paste at the cursor position (not before or above)
+vim.api.nvim_set_keymap("n", "p", "p", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "P", "P", { noremap = true, silent = true })
+
+-- Visual mode: Replace selected text with the pasted content
+vim.api.nvim_set_keymap("v", "p", "p", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "P", "P", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true })
 
@@ -54,10 +63,10 @@ vim.api.nvim_set_keymap("n", "o", "o <BS><Esc>", { noremap = true, silent = true
 
 vim.api.nvim_set_keymap("v", ",", "w", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("v", "_", "^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "-", "$", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "_", "^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "-", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "V", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "v", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "V", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "v", "$", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "l", "s", { noremap = true, silent = true })
 

@@ -12,23 +12,30 @@ return {
 					show_hidden = true,
 					natural_order = true,
 					is_always_hidden = function(name, _)
-						return name == '..' or name == '.git'
+						return name == ".." or name == ".git"
 					end,
 				},
 				win_options = {
 					wrap = true,
 				},
 				keymaps = {
-					["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
-					["<C-h>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
+					["<C-s>"] = {
+						"actions.select",
+						opts = { vertical = true },
+						desc = "Open the entry in a vertical split",
+					},
+					["<C-h>"] = {
+						"actions.select",
+						opts = { horizontal = true },
+						desc = "Open the entry in a horizontal split",
+					},
 					["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
-					["<leader>e"] = "actions.close",
+					["_"] = "actions.close",
 				},
 			})
 
 			-- Open parent directory in current window
-			vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+			vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
 	},
 }
-
