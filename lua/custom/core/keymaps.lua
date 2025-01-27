@@ -81,6 +81,7 @@ keymap.set("n", "q", '"_x')
 
 vim.api.nvim_set_keymap("v", "d", '"_d', { noremap = true, silent = true }) -- end of the line in visual mode
 vim.api.nvim_set_keymap("n", "d,", [["_daw]<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "y,", [[:let @"=@:<CR>yiw]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "dd", '"_dd', { noremap = true })
 
 -- window management
