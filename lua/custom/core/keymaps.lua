@@ -7,7 +7,7 @@ vim.api.nvim_set_keymap("n", "`", ":bnext<CR>", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "N", "n", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "T", "N", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", ",", "gcc", { noremap = false }) -- Comment current line
+vim.api.nvim_set_keymap("n", ".", "gcc", { noremap = false }) -- Comment current line
 vim.api.nvim_set_keymap("v", ".", "gc", { noremap = false }) -- Comment selection
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprev<CR>", { noremap = true, silent = true })
