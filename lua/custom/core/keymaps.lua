@@ -102,9 +102,9 @@ keymap.set("n", "<leader>oh", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>ot", ":tabn<CR>") --  go to next tab
 
 -- vim-maximizer
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- nvim-tree
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 --keymap.set("n", "<leader>e", ":Fern . -drawer<CR>") -- toggle file explorer
 keymap.set("n", "<leader>ss", ":SessionSave<CR>") -- save session
 keymap.set("n", "<leader>rr", ":SessionRestore<CR>") -- restore session
